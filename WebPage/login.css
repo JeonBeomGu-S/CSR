@@ -6,7 +6,7 @@
 .wrap {
     height: 100%;
     width: 100%;
-    background-color: #D1B2FF;
+    background-color: #FFFFFF;
     background-position: center;
     background-size: cover;
     position: absolute;
@@ -16,7 +16,7 @@
     height: 550px;
     position: relative;
     margin: 1% auto;
-    background: #D1B2FF;
+    background: #FFFFFF;
     padding: 5px;
     overflow: hidden;
 }
@@ -24,7 +24,7 @@
     width: 230px;
     margin: 35px auto;
     position: relative;
-    box-shadow: 0 0 600px 9px #D1B2FF;
+    box-shadow: 0 0 600px 9px #FFFFFF;
     border-radius: 30px;
 }
 .togglebtn {

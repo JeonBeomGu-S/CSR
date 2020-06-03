@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>회원가입</title>
+        <meta charset="utf-8">
+    </head>
+    <style>
+        form {
+            display : block;
+            text-align: center;
+            width : 50%;
+            margin : 0 auto;
+            margin-top : 10%;
+            min-width: 350px;
+            max-width : 370px;
+        }
+        input {
+            width : 100%;
+            padding : 15px;
+            font-weight: bold;
+            margin-top : 5px;
+            border : 1px solid rgb(56, 56, 56);
+        }
+        .date_name {
+            padding : 0;
+            border : none;
+        }
+        input[type="radio"] {
+            width : auto;
+            display: inline;
+        }
+        div#register {
+            display: inline-block;
+            width : 50%; 
+            padding : 15px;
+            cursor: pointer;
+            color : whitesmoke;
+            background-color: #5E42A6;
+            max-width: 300px;
+            margin-top : 15px;
+        }
+    </style>
+    <body>
+        <form>
+            <h3>CSR 회원가입</h3>
+            <input type="text" placeholder="이름"><br>
+            <input type="text" id="tel_number" placeholder="휴대폰 번호"><br>
+            <input type="password" id="pass1" placeholder="비밀번호"><br>
+            <input type="password" id="pass2" placeholder="비밀번호 확인">
+
+            <br><br>
+            <div style="text-align: left; font-weight: bold;">생년월일</div>
+            <input type="date">
+            <br><br>
+            <div style="font-weight: bold;">성별선택</div><br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">남자</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">여자</label>
+            <br>
+
+            <div id="register">회원가입</div>
+        </form>
+    </body>
+</html>

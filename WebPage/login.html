@@ -3,43 +3,44 @@
     <head>
         <title>로그인</title> 
         <meta charset="utf-8">
-    <style>
-        form {
-            display : block;
-            text-align: center;
-            width : 50%;
-            margin : 0 auto;
-            margin-top : 15%;
-            min-width: 450px;
-        }
-        div#login {
-            display: inline-block;
-            width : 50%; 
-            padding : 15px;
-            cursor: pointer;
-            color : whitesmoke;
-            background-color: #5E42A6;
-            max-width: 300px;
-            margin-top : 15px;
-        }
-        div#etc {
-            margin-top : 15px;
-            color : #333333;
-        }
-        div#etc #register {
-            cursor: pointer;  
-        }
-        div#etc #find_id_pw {
-            cursor: pointer;  
-        }
-        input {
-            width : 55%;
-            max-width: 300px;
-            padding : 15px;
-            font-weight: bold;
-            margin-top : 5px;
-        }
-    </style>
+        <style>
+            form {
+                display : block;
+                text-align: center;
+                width : 50%;
+                margin : 0 auto;
+                margin-top : 15%;
+                min-width: 450px;
+            }
+            div#login {
+                display: inline-block;
+                width : 50%; 
+                padding : 15px;
+                cursor: pointer;
+                color : whitesmoke;
+                background-color: #5E42A6;
+                max-width: 300px;
+                margin-top : 15px;
+            }
+            div#etc {
+                margin-top : 15px;
+                color : #333333;
+            }
+            div#etc #register {
+                cursor: pointer;  
+            }
+            div#etc #find_id_pw {
+                cursor: pointer;  
+            }
+            input {
+                width : 55%;
+                max-width: 300px;
+                padding : 15px;
+                font-weight: bold;
+                margin-top : 5px;
+            }
+        </style>
+        <script src="js/signage.base.js"></script>
     </head>
     <body>
         <!-- Login form -->
@@ -49,7 +50,7 @@
             <input type="password" placeholder="Password"><br>
             <div id="login">로그인</div>
             <div id="etc">
-                <span id="register">회원가입</span>&nbsp;&nbsp;&nbsp;
+                <span id="register" onclick="window.location.href='register.html'">회원가입</span>&nbsp;&nbsp;&nbsp;
                 <span id="find_id_pw">아이디/비밀번호 찾기</span>
             </div>
         </form> 

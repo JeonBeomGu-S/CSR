@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reservationHistory</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <style>
+        h1 { text-align: center; margin-top: 3% }
+        h2 { margin-top: 3% }
+        h3 { text-align: right; margin-top: 3%; margin-right: 15% }
+    </style>
+</head>
+<body>
+<div id=main style="margin-top: 3%; margin-left: 3%">
+    <h1 style="display: inline">CSR</h1>
+    <h2 style="display: inline">&nbsp마이페이지</h2>
+</div>
+
+<!-- 메뉴 창 -->
+<div id="menu" style="margin-top: 3%; margin-left: 3%">
+    <h4 style="display: inline; margin-right: 3%">회원정보 변경</h4>
+    <h4 style="display: inline; margin-right: 3%">카드 등록</h4>
+    <h4 style="display: inline; margin-right: 3%">카드 변경</h4>
+    <h4 style="display: inline; margin-right: 3%">예약내역</h4>
+    <h4 style="display: inline; margin-right: 3%">회원 탈퇴</h4>
+</div>
+
+<!-- 현재 선택 한 메뉴 -->
+<div style="margin-top: 3%">
+    <img src="./images/cart.png" width="50px " height="50px" style="display: inline; margin-left: 3%">
+    <h4 style="display: inline; margin-left: 3%">예약내역</h4>
+</div>
+
+<hr style="margin-top: 2%; margin-bottom: 2%">
+
+<!-- 예약 내역 테이블 -->
+<table class="table-bordered" align="center" style="text-align: center">
+    <thead>
+    <tr>
+        <th>선택</th>
+        <th>예약 번호</th>
+        <th>고객명</th>
+        <th>방 번호</th>
+        <th>사용 일시</th>
+        <th>결제 금액</th>
+        <th>취소</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><form><input type="checkbox"></form></td>
+        <td>49123</td>
+        <td>김덕영</td>
+        <td>1</td>
+        <td>18:00 ~ 18:30</td>
+        <td>4,000원</td>
+        <td><form><button class="btn btn-dark">예약 취소</button></form></td>
+    </tr>
+    <tr>
+        <td><form><input type="checkbox"></form></td>
+        <td>49123</td>
+        <td>김덕영</td>
+        <td>1</td>
+        <td>18:00 ~ 18:30</td>
+        <td>4,000원</td>
+        <td><form><button class="btn btn-dark">예약 취소</button></form></td>
+    </tr>
+    <tr>
+        <td><form><input type="checkbox"></form></td>
+        <td>49123</td>
+        <td>김덕영</td>
+        <td>1</td>
+        <td>18:00 ~ 18:30</td>
+        <td>4,000원</td>
+        <td><form><button class="btn btn-dark">예약 취소</button></form></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

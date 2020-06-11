@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>credit</title>
+    <link rel="stylesheet" href="./bootstrap-4.5.0-dist/css/bootstrap.css">
+    <script type="text/javascript" src="./bootstrap-4.5.0-dist/js/bootstrap.js"></script>
+    <style>
+        h1 { text-align: center; margin-top: 3% }
+        h2 { text-align: left; margin-top: 3%; margin-left: 15% }
+        h3 { text-align: right; margin-top: 3%; margin-right: 15% }
+        form.creditWay { text-align: left; margin-left: 17% }
+        input.creditWay { margin-top: 2% }
+        label { font-size: 20px }
+    </style>
+</head>
+<body>
+<h1>결제</h1>
+<h3>CSR</h3>
+<h2>예약 정보</h2>
+
+<!-- 예약 정보 테이블 -->
+<table class="table table-striped"  align="center" style="width: 40%; align-self: center;align-items: center; margin-top: 3%">
+    <tbody style="text-align: center">
+    <tr>
+        <td>예약자</td>
+        <td>시설명</td>
+        <td>방 번호</td>
+        <td>이용 시간대</td>
+        <td>결제 금액</td>
+        <td>취소</td>
+    </tr>
+    <tr>
+        <td>변유진</td>
+        <td>유진 노래방</td>
+        <td>1</td>
+        <td>11:00 ~ 11:30</td>
+        <td>4,000원</td>
+        <td><form><button type="submit" class="btn btn-dark">예약 취소</button></form></td>
+    </tr>
+    <tr>
+        <td>변유진</td>
+        <td>유진 노래방</td>
+        <td>1</td>
+        <td>11:00 ~ 11:30</td>
+        <td>4,000원</td>
+        <td><form><button type="submit" class="btn btn-dark">예약 취소</button></form></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- 결제 수단 선택 -->
+<h2>결제 수단</h2>
+<form class="creditWay">
+    <input class=creditWay type="radio" name="creditWay" value="charge"> <label>&nbsp충전</label> <br>
+    <input class=creditWay type="radio" name="creditWay" value="card"> <label>&nbsp카드</label>
+</form>
+
+
+<img src="./images/card.png" width="10%" height="5%" style="margin-top: 1%; margin-left: 20%">
+
+<!-- 하단 버튼 -->
+<div style="width: 200px; height: 40px; display: block; margin: 0px auto; margin-top: 2%">
+    <form style="float:left;margin:0;">
+        <button type="submit" class="btn btn-dark">취소</button>
+    </form>
+    <form style="float:right;">
+        <button type="submit" class="btn btn-dark">결제하기</button>
+    </form>
+</div>
+
+</body>
+</html>

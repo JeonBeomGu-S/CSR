@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>memberSecession</title>
+    <link rel="stylesheet" href="./bootstrap-4.5.0-dist/css/bootstrap.css">
+    <script type="text/javascript" src="./bootstrap-4.5.0-dist/js/bootstrap.js"></script>
+
+    <style>
+        h1 { text-align: center; margin-top: 3% }
+        h2 { margin-top: 3% }
+        h3 { text-align: right; margin-top: 3%; margin-right: 15% }
+    </style>
+</head>
+<body>
+<div id=main style="margin-top: 3%; margin-left: 3%">
+    <h1 style="display: inline">CSR</h1>
+    <h2 style="display: inline">&nbsp마이페이지</h2>
+</div>
+
+<!-- 메뉴 창 -->
+<div id="menu" style="margin-top: 3%; margin-left: 3%">
+    <h4 style="display: inline; margin-right: 3%">회원정보 변경</h4>
+    <h4 style="display: inline; margin-right: 3%">카드 등록</h4>
+    <h4 style="display: inline; margin-right: 3%">카드 변경</h4>
+    <h4 style="display: inline; margin-right: 3%">예약내역</h4>
+    <h4 style="display: inline; margin-right: 3%">회원 탈퇴</h4>
+</div>
+
+<!-- 현재 선택 한 메뉴 -->
+<div style="margin-top: 3%">
+    <img src="./images/scsissors.png" width="70px " height="50px" style="display: inline; margin-left: 3%">
+    <h4 style="display: inline; margin-left: 3%">회원 탈퇴</h4>
+</div>
+
+<hr style="margin-top: 2%; margin-bottom: 2%">
+
+<!-- 회원 탈퇴 시 주의 사항-->
+<h6 style="margin-left: 3%">회원 탈퇴 시 주의사항</h6>
+<div style="width: 60%; padding: 20px; border: 1px solid gray; margin: 3%">
+    <p style="line-height: 200%">1. CSR 사이트 이용 불가 <br>
+        CSR 를 통해 이용 가능한 제휴서비스 및 서비스에서 동시에 탈퇴처리 됩니다. <br>
+        2. 개인정보 및 이용정보 삭제 <br>
+        회원 탈퇴와 동시에 개인정보 및 모든 이용정보가 초기화 되어 삭제 되므로 절대 복구 불가합니다. <br>
+        삭제대상 정보 <br>
+        - 가입 시 기재한 모든 개인정보 및 서비스 이용 내역 <br>
+        - 보유중인 캐시 <br>
+        탈퇴한 개인정보는 관련법령에 따라 즉시 파기되며, 전자상거래법에 의거하여 결제 내역이 있을 경우 결제 내역은 5년간 별도
+        보관 합니다. <br>
+        3. 탈퇴 후 동일 정보로 90일간 재가입 금지 <br>
+        탈퇴/가입 반복을 통한 부정 행위를 막기 위하여 탈퇴 후 90일간은 재가입 하실 수 없습니다. <br>
+        4. 탈퇴 후 동일 아이디는 6개월간 사용하실 수 없습니다. <br>
+    </p>
+    <form><input type="checkbox"> 회원탈퇴 시 주의사항을 모두 확인하였습니다.</form>
+</div>
+
+<!-- 캐시 현황 -->
+<h4 style="display: inline; margin-left: 3%">캐시 현황</h4>
+<div style="width: 60%; padding: 20px; border: 1px solid gray; margin: 3%">
+    <table class="table table-bordered" align="left" style="width: 30%">
+        <tr>
+            <th>보유중인 캐시</th>
+            <td>0 원</td>
+        </tr>
+    </table>
+    <br><br><br>
+    <p>
+        캐시 환불 안내
+        - 보유중인 캐시는 탈퇴 시 모두 소멸되어 환불이 불가합니다. <br>
+        - 직접 충전하신 캐시 중 회원탈퇴 시점에 직접 충전한 캐시 잔액이 1,000원을 초과하는 경우 유료서비스 이용약관 <br>
+        제19조 에 따라 환불이 가능하오니 아래 캐시 환불신청 방법에 따라 환불 신청 후 탈퇴해 주시기 바랍니다.
+        - 환불신청 방법 <br>
+        가입자 명의와 동일한 계좌번호, 은행명, 연락처를 기재하시어 고객센터 1:1 문의 하기로 환불신청 하시면 됩니다. <br>
+        (계좌주가 가입자 명의와 일치하지 않을 경우 환불이 불가합니다.) <br>
+    </p>
+    <form><input type="checkbox"> 보유중인 캐시 및 환불 안내사항을 확인하였습니다.</form>
+</div>
+
+<div style="width: 200px; height: 40px; margin-top: 2%; margin-left: 30%">
+    <form style="float:left;margin:0;">
+        <button type="submit" class="btn btn-secondary">취소</button>
+    </form>
+    <form style="float:right;">
+        <button type="submit" class="btn btn-primary">탈퇴하기</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,52 +1,58 @@
-
+<!DOCTYPE HTML>
 <html>
     <head>
-        <title>로그인 / 회원가입 CSR </title>
-        <link rel="stylesheet" href="./css/login.css">
+        <title>로그인</title> 
+        <meta charset="utf-8">
+        <style>
+            form {
+                display : block;
+                text-align: center;
+                width : 50%;
+                margin : 0 auto;
+                margin-top : 15%;
+                min-width: 450px;
+            }
+            div#login {
+                display: inline-block;
+                width : 50%; 
+                padding : 15px;
+                cursor: pointer;
+                color : whitesmoke;
+                background-color: #5E42A6;
+                max-width: 300px;
+                margin-top : 15px;
+            }
+            div#etc {
+                margin-top : 15px;
+                color : #333333;
+            }
+            div#etc #register {
+                cursor: pointer;  
+            }
+            div#etc #find_id_pw {
+                cursor: pointer;  
+            }
+            input {
+                width : 55%;
+                max-width: 300px;
+                padding : 15px;
+                font-weight: bold;
+                margin-top : 5px;
+            }
+        </style>
+        <script src="js/signage.base.js"></script>
     </head>
     <body>
-        <div class="wrap">
-            <div class="form-wrap">
-                <div class="button-wrap">
-                    <div id="btn"></div>
-                    <button type="button" class="togglebtn" onclick="login()">Login</button>
-                    <button type="button" class="togglebtn" onclick="register()">Register</button>
-                </div>
-                
-                <form id="login" action="" class="input-group">
-                    <input type="text" class="input-field" placeholder="아이디" required>
-                    <input type="password" class="input-field" placeholder="비밀번호" required>
-                    <input type="checkbox" class="checkbox"><span>Remember Password</span>
-                    <button class="submit">Login</button>
-                </form>
-                <form id="register" action="" class="input-group">
-                    <input type="text" class="input-field" placeholder="이름" required>
-                    <input type="ID" class="input-field" placeholder="아이디" required>
-                    <input type="password" class="input-field" placeholder="비밀번호" required>
-                    <input type="password" class="input-field" placeholder="비밀번호 확인" required>
-                    <input type="tel" class="input-field" placeholder="휴대폰 번호" required>
-                    <input type="checkbox" class="checkbox"><span>Terms and conditions</span>
-                    <button class="submit">REGISTER</button>
-                </form>
+        <!-- Login form -->
+        <form>
+            <h1>CSR</h1>
+            <input type="text" placeholder="ID"><br>
+            <input type="password" placeholder="Password"><br>
+            <div id="login">로그인</div>
+            <div id="etc">
+                <span id="register" onclick="window.location.href='register.html'">회원가입</span>&nbsp;&nbsp;&nbsp;
+                <span id="find_id_pw">아이디/비밀번호 찾기</span>
             </div>
-        </div>
-        <script>
-            var x = document.getElementById("login");
-            var y = document.getElementById("register");
-            var z = document.getElementById("btn");
-            
-            
-            function login(){
-                x.style.left = "50px";
-                y.style.left = "450px";
-                z.style.left = "0";
-            }
-
-            function register(){
-                x.style.left = "-400px";
-                y.style.left = "50px";
-                z.style.left = "110px";
-            }
-        </script>
+        </form> 
     </body>
 </html>

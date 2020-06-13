@@ -1,0 +1,151 @@
+<!DOCtYPE HTML>
+<html>
+<head>
+	<title>방 선택 예약</title>
+	<meta charset="UTF-8">
+</head>
+
+	<style>
+		h1 { text-align: center; margin-top: 3% }
+        h2 { text-align: left;  margin-left: 15%; color:rgb(155, 89, 182)}
+    	h3 { text-align: right;  margin-right: 15% }
+
+        #contents {
+            display : flex;
+            align-items: center;
+            float : center;
+            margin : 0 auto;
+            width : 95%;
+			line-height: 1em;
+        }
+        .no_use_room {
+            vertical-align: bottom;
+            text-align: center;
+            display : inline-block; 
+            width : 15%; 
+            min-height : 150px; 
+            margin-right : 0.5%;
+            margin-left : 0.5%;
+            margin-bottom: 1%; 
+            background-color: rgb(227, 203, 252);
+        }
+        .use_room { 
+            vertical-align: bottom;
+            text-align: center;
+            display : inline-block; 
+            width : 15%; 
+            margin-right : 0.5%;
+            margin-left : 0.5%;
+            margin-bottom: 1%; 
+            min-height : 150px; 
+            background-color: rgb(174, 104, 244);
+        }
+        #rooms {
+            width : 90%;
+            margin : 0 auto;
+        }
+    </style>
+</style>
+
+	<body>
+		<h1>예약</h1>
+        <h3>CSR</h3>
+		<h2>방 선택</h2>
+		
+		<div id="contents" style="height:550px">
+			<div id="rooms"><br>
+                <div room_num="1" room="use" class="use_room" onclick="already()"><br>1, 사용중<br><br>10분<br><br>3~4인용
+				</div>
+
+				<div room_num="2" room="use" class="use_room" onclick="already()"><br>2, 사용중<br><br>13분<br><br>5~6인용
+					</div>
+
+				<div room_num="3" room="use" class="use_room" onclick="already()"><br>3, 사용중<br><br>15분<br><br>1~2인용
+			</div>
+
+				<div room_num="5" room="use" class="use_room" onclick="already()"><br>5, 사용중<br><br>3분<br><br>5~6인용
+			</div>
+
+
+                <div room_num="6" room="no_use" class="no_use_room">
+                    <a href="credit.html">
+                        <p>6, 빈방</p>
+                    </a>
+                    <br>3~4인용
+                </div>
+
+                <div room_num="7" room="no_use" class="no_use_room" >
+                    <a href="credit.html">
+                        <p>7, 빈방</p>
+                    </a>
+                    <br>1~2인용
+                </div>
+
+                <div room_num="8" room="no_use" class="no_use_room">
+                    <a href="credit.html">
+                        <p>8, 빈방</p>
+                    </a>
+                    <br>5~6인용
+                </div>
+
+                <div room_num="9" room="no_use" class="no_use_room">
+                    <a href="credit.html">
+                        <p>9, 빈방</p>
+                    </a>
+                    <br>3~4인용</div>
+
+                <div room_num="10" room="no_use" class="no_use_room">
+                    <a href="credit.html">
+                        <p>10, 빈방</p>
+                    </a>
+                    <br>1~2인용
+                </div>
+
+				<div room_num="11" room="no_use" class="no_use_room">
+                    <a href="credit.html">
+                        <p>11, 빈방</p>
+                    </a>
+                    <br>3~4인용
+                </div>
+
+				<div room_num="12" room="no_use" class="no_use_room">
+                    <a href="credit.html">
+                        <p>12, 빈방</p>
+                    </a>
+                    <br>3~4인용
+                </div>
+
+				<div room_num="13" room="no_use" class="no_use_room" >
+                    <a href="credit.html">
+                        <p>13, 빈방</p>
+                    </a>
+                    <br>3~4인용
+                </div>
+
+				<div room_num="14" room="no_use" class="no_use_room">
+                    <a href="credit.html">
+                        <p>14, 빈방</p>
+                    </a>
+                    <br>1~2인용
+                </div>
+
+                <div room_num="15" room="use" class="use_room" onclick="already()"><br>15, 사용중<br><br>50분<br><br>1~2인용
+                </div>
+			</div>
+        </div>
+
+        <div style="width: 200px; height: 40px; display: block; margin: 0px auto; margin-top: 2%">
+            <form style="float:left;margin:0;">
+                <button type="submit" onclick="location.href='reservationTimeDate.html'">이전 화면</button>
+            </form>
+    </body>
+    <script>
+        function already(){
+            alert("사용중인 방입니다.");
+        }
+        
+        function ready(){
+            location.href("C:\Users\byooj\Desktop\WebPage\credit.html");
+        }
+    </script>
+</html>

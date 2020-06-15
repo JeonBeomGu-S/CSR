@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reservationHistory</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/950ccfa2a8.js" crossorigin="anonymous"></script>
+    <style>
+        h1 { text-align: center; margin-top: 3% }
+        h2 { margin-top: 3% }
+        h3 { text-align: right; margin-top: 3%; margin-right: 15% }
+    </style>
+</head>
+<body>
+<div id=main style="margin-top: 3%; margin-left: 3%">
+    <h1 style="display: inline">CSR</h1>
+    <h2 style="display: inline">&nbsp마이페이지</h2>
+</div>
+
+<!-- 메뉴 창 -->
+<div id="menu" style="margin-top: 3%; margin-left: 3%">
+    <h4 style="display: inline; margin-right: 3%">회원정보 변경</h4>
+    <h4 style="display: inline; margin-right: 3%">카드 등록</h4>
+    <h4 style="display: inline; margin-right: 3%">카드 변경</h4>
+    <h4 style="display: inline; margin-right: 3%">예약내역</h4>
+    <h4 style="display: inline; margin-right: 3%">회원 탈퇴</h4>
+</div>
+
+<!-- 현재 선택 한 메뉴 -->
+<div style="margin-top: 3%">
+
+</div>
+
+<hr style="margin-top: 2%; margin-bottom: 2%">
+
+<i style="margin-left: 5%" class="far fa-credit-card fa-3x"></i>
+<h4 style="display: inline; margin-left: 1%">결제카드</h4><a href="javascript:void(0)"> 카드삭제&gt;</a>
+<p class="itxt" style="margin-left: 10%">   카드 이름: 신한카드<br>
+    카드 번호: ****_****_****_4931<br>
+
+</p>
+ 
+<hr style="margin-top: 2%; margin-bottom: 2%">
+
+<h1>카드변경</h1>
+<br>
+<h5 style="margin-left:33%">새로운 카드정보를 입력하신 후 변경하기 버튼을 눌러주세요.</h5>  
+<br>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+
+<body>
+    <form action="#">
+        <table border="1" width="90%" align="center">
+            
+            <tr  height="70px">
+                <td align="center" style="background-color: lightgray">카드 브랜드</td>
+                <td><select name='cards'style="margin-left: 3%" >
+                    <option value='' selected>-- 선택 --</option>
+                    <option value='apple'>신한</option>
+                    <option value='apple'>우리</option>
+                    <option value='apple'>국민</option>
+                    <option value='apple'>농협</option>
+                    <option value='apple'>하나</option>
+                    <option value='banana'>기업</option>
+                    <option value='lemon'>새마을</option>
+                    <option value='lemon'>카카오뱅크</option>
+                  </select>
+            </tr>
+            <tr height="70px">
+                <td align="center" style="background-color: lightgray">카드 번호</td>
+                <td><input style="margin-left: 3%" size="10" type="text"> <input size="10" type="text"> <input size="10" type="text"> <input size="10" type="text"> </td>
+            </tr>
+            <tr height="70px">
+                <td align="center" style="background-color: lightgray">유효 기간</td>
+                <td><input style="margin-left: 3%" size="15" type="text"> / <input size="15" type="text"></td>
+            </tr>
+            <tr height="70px">
+                <td align="center" style="background-color: lightgray">카드 비밀번호</td>
+                <td>
+                    <div class="block">
+                        <input style="margin-left: 3%; " size="18" type="password" name="new_password1" class="txt"  maxlength="15"
+                        onkeypress="return checkData(this, event, 15, 0, 1);" onkeyup="return checkHangleData(this);">
+                    </div>
+                </td>
+            </tr>
+            <tr height="70px">
+                <td align="center" style="background-color: lightgray">CVC 코드</td>
+                <td><input style="margin-left: 3%" size="10" type="text">
+                <i class="fas fa-exclamation-circle fa-1x"></i>
+                <span class="ierror ifx2">카드뒷면 서명란 끝 3자리숫자</span>
+                </td>
+            </tr>
+            <tr height="70px">
+                <td align="center" style="background-color: lightgray">결제 비밀번호</td>
+                <td>
+                    <div class="block">
+                        <input style="margin-left: 3%; " size="18" type="password" name="new_password1" class="txt" placeholder="결제 비밀번호 입력" maxlength="6"
+                        onkeypress="return checkData(this, event, 6, 0, 1);" onkeyup="return checkHangleData(this);">
+                        <i class="fas fa-exclamation-circle fa-1x"></i>
+                        <span class="ierror ifx">6자로 입력해주세요.</span>
+                    </div>
+                    </td>
+            </tr>
+        </table>
+        <div style="width: 200px; height: 40px; margin-top: 2%; margin-left: 45%">
+            <form style="float:left;margin:0;">
+                <button type="submit" class="btn btn-secondary">돌아가기</button>
+            </form>
+            <form style="float:right;">
+                <button type="submit" class="btn btn-primary">변경하기</button>
+            </form>
+        </div>
+        
+    </form>
+    <p></p>
+</body>
+</html>

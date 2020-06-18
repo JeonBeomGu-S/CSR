@@ -1,0 +1,94 @@
+* {
+    padding : 0;
+    margin : 0;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome, Opera and Firefox */
+}
+.numbers {
+    position: relative;
+    margin : 0 auto;
+    width : 50%;
+    min-width : 385px;
+}
+.numbers span {
+    display : inline-block; 
+    width : 120px;
+    height : 80px;
+    line-height: 80px;
+    font-size : 2em;
+    font-weight: bold;
+    color : whitesmoke;
+    background-color: rgb(104, 104, 104);
+    margin-bottom : 5px; 
+    border-radius: 5px;
+    border : 1px solid whitesmoke;
+}
+::selection {
+    color: none;
+    background: none;
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+    background-color: #34495e;
+    margin: 5% auto; /* 15% from the top and centered */
+    border: 1px solid black;
+    width: 65%; /* Could be more or less, depending on screen size */
+}
+
+.lds-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.lds-ring-wrap {
+ position: absolute; top : 50%; left: 50%; text-align: center; width : 150px; height : 150px; background-color: rgb(184, 184, 184); border-radius: 20px;
+ padding-top : 20px;
+ transform: translateX(-50%);
+}

@@ -97,22 +97,16 @@
         </div>
         <!-- 결제하기 버튼, 첫 화면으로 -->
         <footer style="margin : 0 auto; width : 50%; margin-top : 30px; text-align: center;">
-            <div style="display : inline-block; background-color: #3498db; width : 35%; height : 75px; line-height: 75px; font-weight: bold; max-width : 220px; margin-right : 5px;
-            font-size : 24px; border-radius: 5px; border : 2px solid whitesmoke; color : rgba(245, 245, 245, 0.9);" onclick="window.location.href='index.html'">
-                <img src="svg/left.svg" style="width : 20px;">
-                첫 화면으로
-            </div> 
-            <div style="display : inline-block; background-color: #27ae60; width : 30%; height : 75px; line-height: 75px; font-weight: bold; max-width : 220px; margin-right : 5px;
-            font-size : 24px; border-radius: 5px; border : 2px solid whitesmoke; color : rgba(245, 245, 245, 0.9);"
-            onclick="img_modal.style.display='block'">
-                <img src="svg/map.svg" style="width : 20px;">
-                지도보기
-            </div> 
-            <div style="display : inline-block; background-color: #e74c3c; width : 30%; height : 75px; line-height: 75px; font-weight: bold; max-width : 220px; margin-right : 5px;
-            font-size : 24px; border-radius: 5px; border : 2px solid whitesmoke; color : rgba(245, 245, 245, 0.9);" onclick="payment_room();">
-                <img src="svg/money_coin.svg" style="width : 20px;">
-                결제하기
-            </div> 
+        	<button type="button" onclick="window.location.href='index.html'"
+                        style="color: #fff; background:#5E42A6; border-radius:0.5em; padding:20px 50px; font-size: 20px;">
+                         첫 화면으로
+                </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" onclick="payment_room();"
+                        style="color: #fff; background:#5E42A6; border-radius:0.5em; padding:20px 60px; font-size: 20px;">
+                        결제하기
+                </button>
+                
         </footer>
         <!-- modal -->
         <div class="modal" id="modal">

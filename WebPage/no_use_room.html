@@ -97,22 +97,15 @@
         </div>
         <!-- 결제하기 버튼, 첫 화면으로 -->
         <footer style="margin : 0 auto; width : 50%; margin-top : 30px; text-align: center;">
-            <div style="display : inline-block; background-color: #3498db; width : 35%; height : 75px; line-height: 75px; font-weight: bold; max-width : 220px; margin-right : 5px;
-            font-size : 24px; border-radius: 5px; border : 2px solid whitesmoke; color : rgba(245, 245, 245, 0.9);" onclick="window.location.href='index.html'">
-                <img src="svg/left.svg" style="width : 20px;">
-                첫 화면으로
-            </div> 
-            <div style="display : inline-block; background-color: #27ae60; width : 30%; height : 75px; line-height: 75px; font-weight: bold; max-width : 220px; margin-right : 5px;
-            font-size : 24px; border-radius: 5px; border : 2px solid whitesmoke; color : rgba(245, 245, 245, 0.9);"
-            onclick="img_modal.style.display='block'">
-                <img src="svg/map.svg" style="width : 20px;">
-                지도보기
-            </div> 
-            <div style="display : inline-block; background-color: #e74c3c; width : 30%; height : 75px; line-height: 75px; font-weight: bold; max-width : 220px; margin-right : 5px;
-            font-size : 24px; border-radius: 5px; border : 2px solid whitesmoke; color : rgba(245, 245, 245, 0.9);" onclick="payment_room();">
-                <img src="svg/money_coin.svg" style="width : 20px;">
-                결제하기
-            </div> 
+            <button type="button" onclick="window.location.href='index.html'"
+                        style="color: #fff; background:#5E42A6; border-radius:0.5em; padding:20px 50px; font-size: 20px;">
+                         첫 화면으로
+                </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" onclick="payment_room();"
+                        style="color: #fff; background:#5E42A6; border-radius:0.5em; padding:20px 60px; font-size: 20px;">
+                        결제하기
+                </button> 
         </footer>
         <!-- modal -->
         <div class="modal" id="modal">
@@ -122,7 +115,7 @@
                     <br><span style="font-size : 50px; color : #2d3436;">요금제를 선택해주세요</span><br><br><br>
                     <div onclick="login();" style="
                     display : inline-block; width : 40%; margin-right : 2%; padding-bottom: 40px; padding-top : 40px; vertical-align: bottom;
-                    background: linear-gradient(174deg, rgba(116,185,255,1) 0%, rgba(55,161,244,1) 43%, rgba(9,132,227,1) 100%);
+                    background: rgb(155, 89, 182);
                     border-radius: 20px;
                     ">
                         <img src="svg/star.svg" alt="img" style="width : 150px;" ><br><br>
@@ -130,14 +123,14 @@
                     </div>
                     <div onclick="non_members();" style="
                     display : inline-block; width : 40%; padding-bottom : 40px; padding-top : 40px; vertical-align: bottom; 
-                    background: linear-gradient(174deg, rgba(223,230,233,1) 0%, rgba(178,190,195,1) 43%, rgba(99,110,114,1) 100%);
+                    background: rgb(227, 203, 252);
                     border-radius: 20px;
                     ">
                         <img src="svg/user.svg" alt="img" style="width : 180px;"><br><br>
                         <span style="font-size : 36px; font-weight: bold; color : whitesmoke;">비회원 요금제</span>
                     </div>
                     <br><br><br>
-                    <div onclick="modal('close');" style="text-align: center; width : 25%; background-color: rgb(255, 103, 103);
+                    <div onclick="modal('close');" style="text-align: center; width : 25%; background:#5E42A6;
                     margin : 0 auto; padding-top : 20px; padding-bottom: 20px; font-size : 24px; font-weight: bold; color : whitesmoke;"> 닫기 </div>
                     <br><br>
                 </div>
@@ -148,7 +141,7 @@
             <div style="display : inline-block; position : absolute; width : 50%; text-align: center; top : 10%; left : 50%; transform: translateX(-50%);">
                 <img src="images/CSR.png" alt="img" style="width: 90%;">
                 <div style="display : inline-block; padding : 20px; padding-left : 40px; padding-right : 40px; 
-                border: whitesmoke solid 2px; background-color: #2d3436; color : whitesmoke; font-weight: bold;
+                border: whitesmoke solid 2px; background:#5E42A6; color : whitesmoke; font-weight: bold;
                 font-size : 24px; border-radius: 20px; margin-top : 15px;
                 " onclick="img_modal.style.display='none'">닫기</div>
             </div>

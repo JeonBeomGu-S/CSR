@@ -33,6 +33,39 @@
     </p>
 
     </body>
+    
+    <!-- 박수경
+    	목적 : 예약자와 예약 정보를 나타낸다.
+    	되돌아오는 값 : 화면에 나타나 있는 예약 정보 -->
+    <script>
+    var  = document.getElementById(""); //예약한 시간
+    var post_name = document.getElementById("username");
+    var  = document.getElementById(""); //시설명
+    var  = document.getElementById(""); //방 번호
+    var  = document.getElementById(""); //시작시간
+    var  = document.getElementById(""); //종료시간
+    var  = document.getElementById(""); //이용날짜
+    
+   function reservationinfo(){
+    
+    var data = new FormData();
+    data.append("post_naum", name.value); //예약자
+    data.append("", ); //시설명
+    data.append("", ); //방번호
+    data.append("", ); //시작시간
+    data.append("", ); //종료시간
+    data.append("", ); //결제금액
+    
+    
+    POST("design_pattern_web.php", data, function(resp){
+    	console.log(resp.data);
+    	}
+    	
+    }
+ 
+ 
+    	
+    </script>
 </html>
 
         

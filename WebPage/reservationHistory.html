@@ -80,4 +80,68 @@
 </table>
 
 </body>
+ <script>
+        //작성자: 이수진
+        //목적: 카드 변경 버튼 함수
+        //되돌아오는 값: ...어떤 json 값
+        // init var
+        var card_name = null;
+        var post_cardnumber = document.getElementById("cardnumber");
+        var post_date= document.getElementById("date");
+        var post_cardpassword = document.getElementById("cardpassword");
+        var post_cvc = document.getElementById("cvc");
+        var post_chargenumber = document.getElementById("chargenumber");
+        
+
+        function cardchange(){
+         
+ 
+            // prev task 
+            if ( post_cardnumber.value.length == 0 ){
+                alerted(function(){return;}, "", "카드 번호를 입력해주세요.", "warning");
+                return;
+            }
+            if ( post_date.value.length == 0 ){
+                alerted(function(){return;}, "", "유효기간을 입력해주세요.", "warning");
+                return;
+            }
+            if ( post_cardpassword.value.length == 0 ){
+                alerted(function(){return;}, "", "카드 비밀번호를 입력해주세요.", "warning");
+                return;
+            }
+            if ( post_cvc.value != post_password2.value ){
+                alerted(function(){return;}, "", "cvc를 입력해주세요.", "warning");
+                return;
+            }
+            if ( post_chargenumber.value.length == 0 ) {
+                alerted(function(){return;}, "", 결제 비밀번호를 입력해주세요.", "warning");
+                return;
+            }
+            var data = new FormData();
+            data.append("func", "chardchange_check")
+            data.append("post_cardnumber", cardnumber.value);
+            data.append("post_date", date.value);
+            data.append("post_cardpassword", cardpassword.value);
+            data.append("post_cvc", cvc.value);
+            data.append("post_chargenumber", chargenumber.value);
+            //카드번호 유효기간 카드 비밀번호 cvc  데이터를 보냄
+            POST("design_pattern_web.php", data, function(resp) {
+            console.log(resp.data);
+            //카드변경 실패
+            if (resp.data == "cardpassword_wrong"){
+                alerted(function(){return;}, "카드 비밀번호가  다릅니다.", "warning");
+                return;
+            }
+            //카드변경 완료
+            if (resp.data == "cardchange_ok"){
+                
+            }
+
+        });
+
+        }
+
+
+    </script>
+
 </html>

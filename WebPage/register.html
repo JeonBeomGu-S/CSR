@@ -4,6 +4,8 @@
         <title>회원가입</title>
         <meta charset="utf-8">
     </head>
+    <script src="signage.base.js"></script>
+    <script src="sweetalert.min.js"></script>
     <style>
         form {
             display : block;
@@ -43,14 +45,14 @@
     <body>
         <form>
             <h3>CSR 회원가입</h3>
-            <input type="text" placeholder="이름"><br>
-            <input type="number" maxlength="11" id="tel_number" placeholder="휴대폰 번호"><br>
+            <input id="username" type="text" placeholder="이름"><br>
+            <input id="tel_number" type="text" maxlength="11"  placeholder="휴대폰 번호"><br>
             <input type="password" id="pass1" placeholder="비밀번호"><br>
             <input type="password" id="pass2" placeholder="비밀번호 확인">
 
             <br><br>
             <div style="text-align: left; font-weight: bold;">생년월일</div>
-            <input type="date">
+            <input id="year" type="date">
             <br><br>
             <div style="font-weight: bold;">성별선택</div><br>
             <input type="radio" id="male" name="gender" value="male">
@@ -62,4 +64,34 @@
             <div id="register">회원가입</div>
         </form>
     </body>
+    <script>
+        // init var
+        var post_name = document.getElementById("username");
+        var post_tel_number = document.getElementById("tel_number");
+        var post_password1 = document.getElementById("pass1");
+        var post_password2 = document.getElementById("pass2");
+        var post_year = document.getElementById("year");
+        var post_gender = null;
+        
+        function register(){
+            // prev task 
+            if ( post_name.value.length == 0 ){
+                alerted(function(){return;}, "", "이름을 입력해주세요.", "warning");
+                return;
+            }
+            if ( post_tel_number.value.length == 0 ){
+                alerted(function(){return;}, "", "전화번호를 입력해주세요.", "warning");
+                return;
+            }
+            if ( post_password1.value.length == 0 || post_password2.value.length == 0 ){
+                alerted(function(){return;}, "", "패스워드를 입력해주세요.", "warning");
+                return;
+            }
+            if ( post_password1.value != post_password2.value ){
+                alerted(function(){return;}, "", "패스워드가 서로 다릅니다.", "warning");
+                return;
+            }
+        }
+
+    </script>
 </html>

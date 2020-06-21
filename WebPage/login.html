@@ -40,22 +40,51 @@
                 margin-top : 5px;
             }
         </style>
-        <script src="./js/signage.base.js"></script>
+        <script src="./signage.base.js"></script>
+        <script src="./sweetalert.min.js"></script>
     </head>
     <body>
         <!-- Login form -->
         <form>
             <h1>CSR</h1>
-            <input type="number" maxlength="11" placeholder="휴대폰 번호" ><br>
-            <input type="password" placeholder="비밀번호" ><br>
-            <div id="login">로그인</div>
+            <input id="telNum" type="text" maxlength="13" placeholder="휴대폰 번호" ><br>
+            <input id="password" type="password" placeholder="비밀번호" ><br>
+            <div onclick="loginCheck();" id="login">로그인</div>
             <div id="etc">
                 <span id="register" onclick="window.location.href='register.html'">회원가입</span>&nbsp;&nbsp;&nbsp;
                 <span id="find_id_pw" onclick="window.location.href='find_pw.html'">비밀번호 찾기</span>
             </div>
         </form> 
     </body>
+    <script>
+        var telNum = document.getElementById("telNum");
+        var password = document.getElementById("password");
+        function loginCheck(){
+            if ( telNum.value.length == 0 ){
+                alerted(function(){return;}, "휴대폰 번호", "휴대폰 번호를 입력해주세요.", "warning");
+                return;
+            }
+            if ( password.value.length == 0 ) {
+                alerted(function(){return;}, "비밀번호", "비밀번호를 입력해주세요.", "warning");
+                return;
+            }
+            var data = new FormData();
+            data.append("func", "login_check")
+            data.append("post_tel_number", telNum.value);
+            data.append("post_password", password.value);
+            POST("design_pattern_web.php", data, function(resp){
+                console.log(resp.data);
+                // 로그인 실패
+                if (resp.data == "password_wrong"){
+                    alerted(function(){return;}, "계정을 다시 확인해주세요.", "계정명 또는 패스워드가 다릅니다.", "warning");
+                    return;
+                }
+                // 로그인 완료
+                if (resp.data == "login_ok"){
 
-
+                }
+            });
+        }
+    </script>
 
  </html>

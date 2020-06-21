@@ -13,24 +13,26 @@
 </head>
 <body>
 <div id=main style="margin-top: 3%; margin-left: 3%">
-    <h1 style="display: inline"><strong>CSR</strong></h1>
-    <h3 style="display: inline">&nbsp<strong>마이페이지</strong></h3>
+    <h1 style="display: inline;"><strong>CSR</strong></h1>
+    <h3 style="display: inline;">&nbsp<strong>마이페이지</strong></h3>
     <img  src="home.png" style="width: 5%; float: right; margin-right: 50px;" onclick=location.href='index.html'>
+ 
+
 </div>
 
 <!-- 메뉴 창 -->
 <div id="menu" style="margin-top: 3%; margin-left: 3%">
-    <h4 style="display: inline; margin-right: 3%" onclick=location.href='member_information.html'>회원정보 변경</h4>
-    <h4 style="display: inline; margin-right: 3%; color:#5E42A6;" onclick=location.href='card_registration.html'>카드 등록</h4>
-    <h4 style="display: inline; margin-right: 3%" onclick=location.href='card_change.html'>카드 변경</h4>
-    <h4 style="display: inline; margin-right: 3%" onclick=location.href='reservationHistory.html'>예약내역</h4>
-    <h4 style="display: inline; margin-right: 3%" onclick=location.href='memberSecession.html'>회원 탈퇴</h4>
+    <h4 style="display: inline; margin-right: 3%" onclick=location.href='member_information.html'><strong>회원정보 변경</strong></h4>
+    <h4 style="display: inline; margin-right: 3%; color:#5E42A6;" onclick=location.href='card_registration.html'><strong>카드 등록</strong> </h4>
+    <h4 style="display: inline; margin-right: 3%" onclick=location.href='card_change.html'><strong>카드 변경</strong></h4>
+    <h4 style="display: inline; margin-right: 3%" onclick=location.href='reservationHistory.html'><strong>예약내역</strong></h4>
+    <h4 style="display: inline; margin-right: 3%" onclick=location.href='memberSecession.html'><strong>회원 탈퇴</strong></h4>
 </div>
 
 <!-- 현재 선택 한 메뉴 -->
 <div style="margin-top: 3%">
     <i style="margin-left: 5%" class="far fa-credit-card fa-3x"></i>
-    <h4 style="display: inline; margin-left: 1%">카드정보 입력</h4>
+    <h4 style="display: inline; margin-left: 1%"><strong>카드정보 입력</strong></h4>
 </div>
 
 <hr style="margin-top: 2%; margin-bottom: 2%">
@@ -63,11 +65,11 @@
                 </tr>
                 <tr height="70px">
                     <td align="center" style="background-color: lightgray">카드 번호</td>
-                    <td><input style="margin-left: 3%" size="10" type="text"> <input size="10" type="text"> <input size="10" type="text"> <input size="10" type="text"> </td>
+                    <td><input style="margin-left: 3%" size="10" type="text"maxlength="4"> <input size="10" type="text"maxlength="4"> <input size="10" type="text"maxlength="4"> <input size="10" type="text"maxlength="4"> </td>
                 </tr>
                 <tr height="70px">
                     <td align="center" style="background-color: lightgray">유효 기간</td>
-                    <td><input style="margin-left: 3%" size="15" type="text"> / <input size="15" type="text"></td>
+                    <td><input style="margin-left: 3%" size="15" type="text"maxlength="2"> / <input size="15" type="text"maxlength="2"></td>
                 </tr>
                 <tr height="70px">
                     <td align="center" style="background-color: lightgray">카드 비밀번호</td>
@@ -80,7 +82,7 @@
                 </tr>
                 <tr height="70px">
                     <td align="center" style="background-color: lightgray">CVC 코드</td>
-                    <td><input style="margin-left: 3%" size="10" type="text">
+                    <td><input style="margin-left: 3%" size="10" type="text"maxlength="3">
                     <i class="fas fa-exclamation-circle fa-1x"></i>
                             <span class="ierror ifx2">카드뒷면 서명란 끝 3자리숫자</span>
                         </td>

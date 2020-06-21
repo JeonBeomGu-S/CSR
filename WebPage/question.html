@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 
 <style>
-            form {
+              form {
                 display : block;
                 text-align: center;
                 width : 50%;
@@ -43,35 +43,66 @@
             }
 
 
-        </style>
-
-    </head>
-
-    <body>
-    	<!-- Question form -->
-    	<form>
-    		<h1>문의사항</h1>
-    		
-    <div>
-        <label for="name"><strong>이름</strong></label>
-        <input type="text" id="text" name="user_name" />
-
-  
-        <label for="mail"><strong>&nbsp;&nbsp; 이메일</strong></label>
-        <input type="text" id="text" name="user_email" />
-    </div><br>
-    <div><br>
-        <label for="msg"><strong>문의내용</strong></label> <br><br>
-       <input type = "texts" id="texts">
-    </div>
-    </div>
-    
-
-    		        <div id="send">보내기</div>
-    		    </form>
-    		</body>
-    		</html>
-
+      
+        table.table2{
+                border-collapse: separate;
+                border-spacing: 1px;
+                text-align: left;
+                line-height: 1.5;
+                border-top: 1px solid #ccc;
+                margin : 20px 10px;
+        }
+        table.table2 tr {
+                 width: 50px;
+                 padding: 10px;
+                font-weight: bold;
+                vertical-align: top;
+                border-bottom: 1px solid #ccc;
+        }
+        table.table2 td {
+                 width: 100px;
+                 padding: 10px;
+                 vertical-align: top;
+                 border-bottom: 1px solid #ccc;
+        }
+ 
+</style>
+<body>
+        <form method = "get" action = "write_action.php">
+         <table border="1" width="90%" align="center"style="text-align: center">
+                <tr>
+               <td height=20 style="margin-bottom: 2% ;"align= center bgcolor=#ccc><font></font> 문의사항</font></td>
+                </tr>
+                <tr>
+                <td bgcolor=white>
+                <table class = "table2">
+                        <tr>
+                        <td>작성자</td>
+                        <td><input type = text name = name size=20 maxlength=10> </td>
+                        </tr>
+ 
+                        <tr>
+                        <td>제목</td>
+                        <td><input type = text name = title size=60></td>
+                        </tr>
+ 
+                        <tr>
+                        <td>내용</td>
+                        <td><textarea name = content cols=85 rows=15></textarea></td>
+                        </tr>
+ 
+                        <tr>
+                        <td>비밀번호</td>
+                        <td><input type = password name = pw size=10 maxlength=10></td>
+                        </tr>
+                        </table>
+                        <div style="margin-bottom: 5%;" id="send">보내기</div>
+                </td>
+                </tr>
+        </table>
+        </form>
+</body>
+</html>
     	
 
     		      

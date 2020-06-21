@@ -1,62 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>credit</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>credit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
     <style>
-        h1 { text-align: center; margin-top: 3% }
-        h2 { text-align: left; margin-top: 3%; margin-left: 15% }
-        h3 { text-align: right; margin-top: 3%; margin-right: 15% }
-        form.creditWay { text-align: left; margin-left: 17% }
-        input.creditWay { margin-top: 2% }
-        label { font-size: 20px }
+        h1 {
+            text-align: center;
+            margin-top: 3%
+        }
+
+        h2 {
+            text-align: left;
+            margin-top: 3%;
+            margin-left: 15%
+        }
+
+        h3 {
+            text-align: right;
+            margin-top: 3%;
+            margin-right: 15%
+        }
+
+        form.creditWay {
+            text-align: left;
+            margin-left: 17%
+        }
+
+        input.creditWay {
+            margin-top: 2%
+        }
+
+        label {
+            font-size: 20px
+        }
     </style>
+
+    <script lang="javascript">
+        function showPopup() {window.open("password2.html", "결제비밀번호", "width=800, height=600, left=200, top=100");}
+    </script>
 </head>
+
 <body>
-	<img  src="home.png" style="width: 5%; float: right; margin-right: 50px;" onclick=location.href='index.html'>
-<h1 style="color: #5E42A6;">결제</h1>
-<h2 style="color: #5E42A6;">예약 정보</h2>
+    <img src="home.png" style="width: 5%; float: right; margin-right: 50px;" onclick=location.href='index.html'>
+    <h1 style="color: #5E42A6;">결제</h1>
+    <h2 style="color: #5E42A6;">예약 정보</h2>
 
-<!-- 예약 정보 테이블 -->
-<table class="table table-striped"  align="center" style="width: 40%; align-self: center;align-items: center; margin-top: 3%">
-    <tbody style="text-align: center">
-    <tr>
-        <td>예약자</td>
-        <td>시설명</td>
-        <td>방 번호</td>
-        <td>이용 시간대</td>
-        <td>결제 금액</td>
-    </tr>
-    <tr>
-        <td>변유진</td>
-        <td>유진 노래방</td>
-        <td>1</td>
-        <td>11:00 ~ 11:30</td>
-        <td>4,000원</td>
-    </tr>
-    </tbody>
-</table>
+    <!-- 예약 정보 테이블 -->
+    <table class="table table-striped" align="center"
+        style="width: 40%; align-self: center;align-items: center; margin-top: 3%">
+        <tbody style="text-align: center">
+            <tr>
+                <td>예약자</td>
+                <td>시설명</td>
+                <td>방 번호</td>
+                <td>이용 시간대</td>
+                <td>결제 금액</td>
+            </tr>
+            <tr>
+                <td>변유진</td>
+                <td>유진 노래방</td>
+                <td>1</td>
+                <td>11:00 ~ 11:30</td>
+                <td>4,000원</td>
+            </tr>
+        </tbody>
+    </table>
 
-<!-- 결제 수단 선택 -->
-<h2 style="color: #5E42A6;">결제 수단</h2>
-<form class="creditWay">
-    <input class=creditWay type="radio" name="creditWay" value="charge"> <label>&nbsp충전</label> <br>
-    <input class=creditWay type="radio" name="creditWay" value="card"> <label>&nbsp카드</label>
-</form>
+    <!-- 결제 수단 선택 -->
+    <h2 style="color: #5E42A6;">결제 수단</h2>
+    <form class="creditWay">
+        <input class=creditWay type="radio" name="creditWay" value="charge"> <label>&nbsp충전</label> <br>
+        <input class=creditWay type="radio" name="creditWay" value="card"> <label>&nbsp카드</label>
+    </form>
 
 
-<img src="./images/card.png" width="5%" height="3%" style="margin-top: 1%; margin-left: 20%">
+    <img src="./images/card.png" width="5%" height="3%" style="margin-top: 1%; margin-left: 20%">
 
-<!-- 하단 버튼 -->
-<p style="margin-left: 40%">
-	<br><br>
-	<button type="button" onclick=location.href='reservationTimeDate.html'
-	style="color: #fff; background:#5E42A6; border-radius:0.5em; padding:10px 40px; font-size: 15px;">이전화면</button>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button type="button" onclick=location.href='password.html'
-     style="color: #fff; background:#5E42A6; border-radius:0.5em; padding:10px 40px; font-size: 15px;">결제하기 </button>
+    <!-- 하단 버튼 -->
+    <p style="margin-left: 40%">
+        <br><br>
+        <button type="button" onclick=location.href='reservationTimeDate.html'
+            style="color: #fff; background:#5E42A6; border-radius:0.5em; padding:10px 40px; font-size: 15px;">이전화면</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" onclick=location.href='password.html'
+            style="color: #fff; background:#5E42A6; border-radius:0.5em; padding:10px 40px; font-size: 15px;">결제하기
+        </button>
+        <input type="button" value="결제하기" onclick="showPopup();"/>
     </p>
 
 </body>
+
 </html>

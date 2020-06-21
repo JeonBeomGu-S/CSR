@@ -95,4 +95,30 @@
 
 </body>
 
+<!-- 박수경
+    	목적 : 결제수단을 정해 보낸다
+    	되돌아오는 값 : ...어떤 json 값 -->
+    <script>
+    var post_name = document.getElementById("startTime"); //예약자
+    var = document.getElementById(""); //시설명
+    var = document.getElementById(""); //방번호
+    var TimeDate_startTime = document.getElementById("startTime"); //이용시작시간
+    var TimeDate_endTime = document.getElementById("endTime"); //이용종료시간
+    var  = document.getElementById(""); //결제금액
+    
+    var = credit_choice = document.getElementById("credit"); //결제수단
+    
+   function reservation_credit(){
+    
+    var data = new FormData();
+    //비밀번호 입력
+    
+    POST("design_pattern_web.php", data, function(resp){
+    	console.log(resp.data);
+    	}
+    	
+    }
+ 
+    </script>
+
 </html>

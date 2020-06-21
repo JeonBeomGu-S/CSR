@@ -88,8 +88,6 @@
             // 시간 분 초는 한자리수이면 시계가 어색해보일까봐 10보다 작으면 앞에0을 붙혀주는 작업을 3항연산으로 했습니다. 
         }
         
-        
-        
         function init() {
         
         clock();
@@ -107,6 +105,34 @@
 
         </script>
         
+        
+        
+       <!-- 박수경
+    	목적 : 예약 시간과 날짜 정보를 받아서 보낸다.
+    	되돌아오는 값 : ...어떤 json 값 -->
+    <script>
+    var TimeDate_startTime = document.getElementById("startTime"); //시작시간
+    var TimeDate_endTime = document.getElementById("endTime"); //종료시간
+    var TimeDate_reservationDate = document.getElementById("reservationDate"); //이용날짜
+    
+   function reservationinfo(){
+    
+    var data = new FormData();
+    data.append("post_naum", name.value); //예약자
+    data.append("", ); //시설명
+    data.append("", ); //방번호
+    data.append("TimeDate_startTime", startTime.value); //시작시간
+    data.append("TimeDate_endTime", endTime.value); //종료시간
+    data.append("TimeDate_reservationDate", reservationDate.value); //결제금액
+    
+    
+    POST("design_pattern_web.php", data, function(resp){
+    	console.log(resp.data);
+    	}
+    	
+    }
+ 
+    </script>
       
 
 </html>

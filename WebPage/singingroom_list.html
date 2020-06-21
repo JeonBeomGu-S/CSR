@@ -1048,5 +1048,23 @@
         $(this).tab('show')
     })
 
+    // 작성자 : 전범구
+    // 목적 : 각각 노래방의 방 정보 표현
+    // 되돌아 오는 값 : 해당 노래방의 방 정보
+
+    var data = new FormData();
+    data.append("func", "room_setting");
+    POST("design_pattern_web.php", data, function (resp) {
+        /*
+        해당하는 노래방의 방 정보들을 row 추가
+        <tr>
+            <td>방 번호</td>
+            <td>수용 인원</td> <-- 필수 X
+            <td>사용자</td> <-- 필수 X 기존에 있던 json 파일 칼럼에 추가할 수 있으면 하면 좋을 것 같지만 필수는 XX
+            <td>남은 시간(곡)</td>
+            <td>예약</td> <-- 예약 가능한 경우 btn-primary, 예약이 불가능한 경우 btn-danger + disabled
+        </tr>
+        */
+    });
 </script>
 </html>

@@ -65,6 +65,9 @@
         </form>
     </body>
     <script>
+        //작성자: 이수진
+        //목적: 가입 버튼 함수
+        //되돌아오는 값: ...어떤 json 값
         // init var
         var post_name = document.getElementById("username");
         var post_tel_number = document.getElementById("tel_number");
@@ -72,8 +75,10 @@
         var post_password2 = document.getElementById("pass2");
         var post_year = document.getElementById("year");
         var post_gender = null;
-        
+
         function register(){
+         
+ 
             // prev task 
             if ( post_name.value.length == 0 ){
                 alerted(function(){return;}, "", "이름을 입력해주세요.", "warning");
@@ -91,7 +96,34 @@
                 alerted(function(){return;}, "", "패스워드가 서로 다릅니다.", "warning");
                 return;
             }
+            if ( post_year.value.length == 0 ) {
+                alerted(function(){return;}, "", "생년월일을 입력해주세요.", "warning");
+                return;
+            }
+            var data = new FormData();
+            data.append("func", "register_check")
+            data.append("post_name", name.value);
+            data.append("post_tel_number", telNum.value);
+            data.append("post_password1", password1.value);
+            data.append("post_password2", password2.value);
+            data.append("post_year", year.value);
+            //이름과 전화번호 패스워드 생년월일 데이터를 보냄
+            POST("design_pattern_web.php", data, function(resp) {
+            console.log(resp.data);
+            //회원가입 실패
+            if (resp.data == "passwords_wrong"){
+                alerted(function(){return;}, "패스워드가 서로 다릅니다.", "warning");
+                return;
+            }
+            //회원가입 완료
+            if (resp.data == "register_ok"){
+                
+            }
+
+        });
+
         }
+
 
     </script>
 </html>

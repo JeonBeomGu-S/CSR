@@ -156,11 +156,11 @@
                 return;
             }
             if ( post_chargenumber1.value.length == 0 || post_chargenumber2.value.length == 0) {
-                alerted(function(){return;}, "", 결제 비밀번호를 입력해주세요.", "warning");
+                alerted(function(){return;}, "", "결제 비밀번호를 입력해주세요.", "warning");
                 return;
             }
              if ( post_chargenumber1.value != post_chargenumber2.value ) {
-                alerted(function(){return;}, "", 결제 비밀번호가 서로 다릅니다.", "warning");
+                alerted(function(){return;}, "", "결제 비밀번호가 서로 다릅니다.", "warning");
                 return;
             }
             var data = new FormData();

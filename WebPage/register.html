@@ -46,9 +46,9 @@
         <form>
             <h3>CSR 회원가입</h3>
             <input id="username" type="text" placeholder="이름"><br>
-            <input id="tel_number" type="text" maxlength="11"  placeholder="휴대폰 번호"><br>
-            <input type="password" id="pass1" placeholder="비밀번호"><br>
-            <input type="password" id="pass2" placeholder="비밀번호 확인">
+            <input id="tel_number" type="text" maxlength="13"  placeholder="휴대폰 번호"><br>
+            <input type="password" id="pass1" maxlength="6" placeholder="비밀번호"><br>
+            <input type="password" id="pass2" maxlength="6" placeholder="비밀번호 확인">
 
             <br><br>
             <div style="text-align: left; font-weight: bold;">생년월일</div>
@@ -61,7 +61,7 @@
             <label for="female">여자</label>
             <br>
 
-            <div id="register">회원가입</div>
+            <div id="register" onclick="register();">회원가입</div>
         </form>
     </body>
     <script>
@@ -77,8 +77,6 @@
         var post_gender = null;
 
         function register(){
-         
- 
             // prev task 
             if ( post_name.value.length == 0 ){
                 alerted(function(){return;}, "", "이름을 입력해주세요.", "warning");
@@ -100,28 +98,37 @@
                 alerted(function(){return;}, "", "생년월일을 입력해주세요.", "warning");
                 return;
             }
+            if ( !(document.getElementById("male").checked) && !(document.getElementById("female").checked) ){
+                    alerted(function(){return;}, "", "성별을 선택해주세요.", "warning");
+                    return;
+            }
+            post_gender = (document.getElementById("male").checked) ? "male" : "female"; 
             var data = new FormData();
-            data.append("func", "register_check")
-            data.append("post_name", name.value);
-            data.append("post_tel_number", telNum.value);
-            data.append("post_password1", password1.value);
-            data.append("post_password2", password2.value);
-            data.append("post_year", year.value);
+            data.append("func", "register")
+            data.append("post_name", post_name.value);
+            data.append("post_tel_number", post_tel_number.value);
+            data.append("post_password", post_password1.value);
+            // data.append("post_password2", post_password2.value);
+            data.append("post_year", post_year.value);
+            data.append("post_gender", post_gender);
             //이름과 전화번호 패스워드 생년월일 데이터를 보냄
             POST("design_pattern_web.php", data, function(resp) {
             console.log(resp.data);
+            // 핸드폰 번호 잘못됨
+            if (resp.data == "phone wrong"){
+                alerted(function(){return;}, "휴대폰 번호를 다시 입력해주세요.", "예시 ) 010-1234-5678", "warning");
+                return;
+            }
             //회원가입 실패
-            if (resp.data == "passwords_wrong"){
-                alerted(function(){return;}, "패스워드가 서로 다릅니다.", "warning");
+            if (resp.data == "overlap"){
+                alerted(function(){return;}, "", "이미 존재하는 계정입니다.", "warning");
                 return;
             }
             //회원가입 완료
-            if (resp.data == "register_ok"){
-                
+            if (resp.data == "register"){
+                alerted(function(){window.location.href="login.html";}, "회원가입 완료.", "로그인 화면으로 이동합니다.");
             }
-
         });
-
         }
 
 

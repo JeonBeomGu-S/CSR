@@ -102,6 +102,51 @@
         </table>
         </form>
 </body>
+<script>
+//작성자: 김덕영
+//목적:  보내기 버튼함수
+//되돌아오는 값:
+
+        var user = document.getElementById("user");
+        var text = document.getElementById("text");
+        var content = document.getElementById("content");
+        var password = document.getElementById("password");
+        function question(){
+            if ( user.value.length == 0 ){
+                alerted(function(){return;}, "작성자", "작성자 이름을 입력해주세요.", "warning");
+                return;
+            }
+            if ( text.value.length == 0 ){
+                alerted(function(){return;}, "제목", "제목을 입력해주세요.", "warning");
+                return;
+            }
+            if ( content.value.length == 0 ){
+                alerted(function(){return;}, "내용", "내용을 입력해주세요.", "warning");
+                return;
+            }
+            if ( password.value.length == 0 ) {
+                alerted(function(){return;}, "비밀번호", "비밀번호를 입력해주세요.", "warning");
+                return;
+            }
+            var data = new FormData();
+            data.append("func", "question_check")
+            data.append("post_password", password.value);
+            POST("design_pattern_web.php", data, function(resp){
+                console.log(resp.data);
+                // 보내기 실패
+                if (resp.data == "question_wrong"){
+                    alerted(function(){return;}, "비밀번호를 다시입력해주세요.", "warning");
+                    return;
+                }
+                // 보내기 완료
+                if (resp.data == "question_ok"){
+
+                }
+            });
+        }
+    
+ 
+        </script>
 </html>
     	
 

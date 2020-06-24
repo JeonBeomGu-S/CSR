@@ -70,6 +70,7 @@
         //되돌아오는 값: ...어떤 json 값
         // init var
         var post_name = document.getElementById("username");
+        var post_nickname = document.getElementById("nickname");
         var post_tel_number = document.getElementById("tel_number");
         var post_password1 = document.getElementById("pass1");
         var post_password2 = document.getElementById("pass2");
@@ -80,6 +81,10 @@
             // prev task 
             if ( post_name.value.length == 0 ){
                 alerted(function(){return;}, "", "이름을 입력해주세요.", "warning");
+                return;
+            }
+             if ( post_nickname.value.length == 0 ){
+                alerted(function(){return;}, "", "닉네임을 입력해주세요.", "warning");
                 return;
             }
             if ( post_tel_number.value.length == 0 ){

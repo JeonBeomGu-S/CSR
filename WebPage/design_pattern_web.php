@@ -42,6 +42,15 @@ function _register(){
     $year = $_POST["post_year"];
     $name = $_POST["post_name"];
 
+    // tel number check
+    if ( !preg_match("/\b[0-9]{3}-[0-9]{4}-[0-9]{4}\b/i", $tel_number) ){
+        outputJSON("phone wrong", "success");
+    }
+
+    // post_gender data  to number
+    $year_arr = explode("-", $year);
+    $year = implode("", $year_arr);
+
     // json file name set
     $file_name = $tel_number . ".json";
 
@@ -65,7 +74,7 @@ function _register(){
     );
     $json = json_encode($json);
     file_put_contents("$file_dir/$file_name", $json);
-    outputJSON("file create success", "success");
+    outputJSON("register", "success");
 }
 
 /////////////////////////////////////

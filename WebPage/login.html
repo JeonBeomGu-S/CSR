@@ -47,7 +47,7 @@
         <!-- Login form -->
         <form>
             <h1>CSR</h1>
-            <input id="telNum" type="text" maxlength="13" placeholder="휴대폰 번호" ><br>
+            <input id="telNum" type="text" maxlength="13" placeholder="휴대폰 번호" onkeypress="checkTelNum(this)"><br>
             <input id="password" type="password" placeholder="비밀번호" ><br>
             <div onclick="loginCheck();" id="login">로그인</div>
             <div id="etc">
@@ -91,6 +91,9 @@
                     return;
                 }
             });
+        }
+        function checkTelNum(e){
+            if ( e.value.length == 3 || e.value.length == 8 ) e.value += "-";
         }
     </script>
 

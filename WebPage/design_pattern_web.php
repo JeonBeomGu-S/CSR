@@ -43,9 +43,12 @@ function _register(){
     $gender = $_POST["post_gender"];
     $year = $_POST["post_year"];
     $name = $_POST["post_name"];
+    $email = $_POST["post_email"];
 
     // tel number check
     if ( !preg_match("/\b[0-9]{3}-[0-9]{4}-[0-9]{4}\b/i", $tel_number) ) outputJSON("phone wrong", "success");
+    // email check
+    if ( !preg_match("/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/i", $email) ) outputJSON("email wrong", "success");
     // post_gender data  to number
     $year_arr = explode("-", $year);
     $year = implode("", $year_arr);
@@ -69,6 +72,7 @@ function _register(){
         "gender"=>$gender,
         "year"=>$year,
         "name"=>$name,
+        "email"=>$email,
         "wallet"=> 0
     );
     $json = json_encode($json);

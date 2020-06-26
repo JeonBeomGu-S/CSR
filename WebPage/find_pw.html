@@ -38,11 +38,17 @@
 	 <!-- FindPassword form -->
 	 <form>
 	 	<h1> CSR 비밀번호 찾기 </h1>
-	 	<input type = "number" maxlength="11" placeholder="휴대폰 번호"><br>
-	 	<input type = "password" placeholder="인증번호"><br>
+	 	<input type = "text" maxlength="13" placeholder="휴대폰 번호" onkeypress="checkTelNum(this);"><br>
+	 	<input type = "text" placeholder="이메일"><br>
+	 	<input type = "number" placeholder="인증번호"><br>
 	 	<input type = "password" placeholder="새로운 비밀번호"><br>
 	 	<input type = "password" placeholder="새로운 비밀번호 확인"><br>
 	 	<div id="findpassword">완료</div>
 	 </form>
-	</body>
-	</html>
+    </body>
+    <script>
+        function checkTelNum(e){
+            if ( e.value.length == 3 || e.value.length == 8 ) e.value += "-";
+        }
+    </script>
+</html>

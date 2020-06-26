@@ -75,8 +75,10 @@
                     <td align="center" style="background-color: lightgray">카드 비밀번호</td>
                     <td>
                         <div class="block">
-                            <input style="margin-left: 3%; " size="18" type="password" name="new_password1" class="txt"  maxlength="15"
+                            <input style="margin-left: 3%; " size="18" type="password" name="new_password1" class="txt"  maxlength="2"
                             onkeypress="return checkData(this, event, 15, 0, 1);" onkeyup="return checkHangleData(this);">
+                            <i class="fas fa-exclamation-circle fa-1x"></i>
+                            <span class="ierror ifx2">카드 비밀번호 앞 2자리 숫자</span>
                         </div>
                     </td>
                 </tr>
@@ -84,7 +86,7 @@
                     <td align="center" style="background-color: lightgray">CVC 코드</td>
                     <td><input style="margin-left: 3%" size="10" type="text"maxlength="3">
                     <i class="fas fa-exclamation-circle fa-1x"></i>
-                            <span class="ierror ifx2">카드뒷면 서명란 끝 3자리숫자</span>
+                            <span class="ierror ifx2">카드 뒷면 서명란 끝 3자리 숫자</span>
                         </td>
                 </tr>
                 <tr height="70px">

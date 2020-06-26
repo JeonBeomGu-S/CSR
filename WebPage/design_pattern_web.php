@@ -1,10 +1,12 @@
 <?php
+// session start
+session_start();
+// include if login is true
+if ( isset($_SESSION["login"]) && $_SESSION["login"] == true ) include_once("./design_pattern_web_login.php");
 
 //  outputJSON, design pattern....;;;;
 function outputJSON($msg, $status = 'error'){
-
     if ($status == 'error') error_log (print_r($msg, true)." in ".__FILE__); 
-    
     header('Content-Type: application/json');
     die(json_encode(array(
         'data' => $msg,
@@ -43,10 +45,7 @@ function _register(){
     $name = $_POST["post_name"];
 
     // tel number check
-    if ( !preg_match("/\b[0-9]{3}-[0-9]{4}-[0-9]{4}\b/i", $tel_number) ){
-        outputJSON("phone wrong", "success");
-    }
-
+    if ( !preg_match("/\b[0-9]{3}-[0-9]{4}-[0-9]{4}\b/i", $tel_number) ) outputJSON("phone wrong", "success");
     // post_gender data  to number
     $year_arr = explode("-", $year);
     $year = implode("", $year_arr);
@@ -113,6 +112,7 @@ function _login_check(){
     $file_dir = "register_info";
     $tel_number = $_POST['post_tel_number'];
     $password = $_POST["post_password"];
+    if ( !preg_match("/\b[0-9]{3}-[0-9]{4}-[0-9]{4}\b/i", $tel_number) ) outputJSON("phone wrong", "success");
     // file is exits check
     $scan_file_dir = scandir("$file_dir");
     $file_is_exists = false;
@@ -124,6 +124,12 @@ function _login_check(){
     $json = json_decode(file_get_contents("$file_dir/$tel_number.json"), true);
     // password check
     if ( $password != $json["password"] ) outputJSON("password_wrong", "success");
+    // session start
+    $_SESSION["login"] = true;
+    $_SESSION["tel_number"] = $json["tel_number"];
+    $_SESSION["gender"] = $json["gender"];
+    $_SESSION["year"] = $json["year"];
+    $_SESSION["name"] = $json["name"];
     outputJSON("login_ok", "success");
 }
 

@@ -34,28 +34,25 @@
 
 <div style="margin-top: 3%">
     <i style="margin-left: 5%" class="far fa-user fa-3x"></i>
-    <h5 style="display: inline; margin-left: 3%"><strong>닉네임 설정</strong></h5>
+    <h5 style="display: inline; margin-left: 3%"><strong>휴대폰 번호 변경</strong></h5>
 </div>
 
 
 <div style="width: 60%; padding: 20px; border: 1px solid gray; margin: 3%">
    <dt class="nick" >
-      <span>닉네임 설정</span>
+      <span>휴대폰 번호 변경</span>
     </dt>
    <dd>
        <div class="block">
            <input type="text" name="user_nick" id="user_nick" class="txt placeholder"
-           placeholder="닉네임" maxlength="12" value="토토"
+           placeholder="010-xxxx-xxxx" maxlength="13"
            onkeypress="if(event.keyCode==40||event.keyCode ==41)
            event.returnValue=false;" onkeydown="chkLength(this, 12, 'nick');"
            onpaste="return false">
-           <button class="btn_db" onclick="return checkNickName();">중복확인</button>
-           <button class="btn_df" id="change_nick">닉네임 변경</button>
+           <button class="btn_db" onclick="return checkNickName();">인증번호 요청</button>
+           
        </div>
-       <p class="itxt">- 리뷰나 문의작성시 보이는 닉네임입니다.<br>
-        (최대 한글6글자 영문12자)<br>
-        - 닉네임 변경시, 24시간 후에 재변경이 가능합니다.<br>
-       </p>
+       
    </dd> 
 </div>
 <div style="margin-top: 3%">
@@ -98,5 +95,61 @@
     </form>
 </div>
 </body>
+
+<script>
+    //작성자: 변유진
+    //목적: 회원 정보 변경 값
+    //되돌아오는 값: 
+
+    var post_nickname = document.getElementById("change_nick");
+    var post_password = document.getElementById("password");//기존 로그인과 회원가입할 때의 비밀번호
+    var post_password1 = document.getElementById("new_password1");
+    var post_password2 = document.getElementById("new_password2");
+    var post_password3 = document.getElementById("new_password3");
+
+    function changeInfo(){
+        if(post_nickname.value.length == 0){
+            alerted(function(){return;}, "", "휴대폰 번호를 입력해주세요.", "warning");
+                return;
+        }
+    }
+
+        if ( post_password1.value != post_password.value ){
+            alerted(function(){return;}, "", "기존 비밀번호가 다릅니다.", "warning");
+             return;
+        }
+
+        if ( post_password1.value.length == 0 || post_password2.value.length || post_password3.value.length == 0 ){
+            alerted(function(){return;}, "", "패스워드를 입력해주세요.", "warning");
+                return;
+        }
+
+        if ( post_password2.value != post_password3.value ){
+            alerted(function(){return;}, "", "패스워드가 서로 다릅니다.", "warning");
+             return;
+        }
+        
+
+        var data = new FormData();
+        data.append("func", "change_check");
+        data.append("post_nickname", name.value);
+        data.append("post_password1", password1.value);
+        data.append("post_password2", password2.value);
+        data.append("post_password3", password3.value);
+        
+        POST("design_pattern_web.php", data, function(resp) {
+            console.log(resp.data);
+
+            if(resp.data == "passwords_wrong"){
+                alerted(function(){return;}), "패스워드가 서로 다릅니다.", "warning";
+                retrun;
+            }
+
+            if(resp.data == "change_ok"){
+
+            }
+        });
+
+</script>
 </html>
      

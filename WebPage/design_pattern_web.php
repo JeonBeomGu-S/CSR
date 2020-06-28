@@ -98,17 +98,6 @@ function _check_room(){
 }
 
 /////////////////////////////////////
-// 방 정보 읽어들이기 : 초기세팅
-$services['room_setting'] = "_room_setting";
-function _room_setting(){
-    s00_log ("Start ".__FUNCTION__);
-    // set room info dir
-    $room_info_dir = "room_info";
-    $json = json_decode(file_get_contents("$room_info_dir/CSR_info.json"), true);
-    outputJSON( array("roominfo"=>$json) , "success" );
-}
-
-/////////////////////////////////////
 // 로그인
 $services['login_check'] = "_login_check";
 function _login_check(){
@@ -134,6 +123,7 @@ function _login_check(){
     $_SESSION["gender"] = $json["gender"];
     $_SESSION["year"] = $json["year"];
     $_SESSION["name"] = $json["name"];
+    $_SESSION["wallet"] = $json["wallet"];
     outputJSON("login_ok", "success");
 }
 
@@ -308,7 +298,7 @@ $services['function_not_exists'] = "_function_not_exists";
 function _function_not_exists(){
     s00_log("Start ".__FUNCTION__);
     error_log("function_not_exists : " . __LINE__ );
-    throw new Exception("사용할 수 없는 서비스");
+    throw new Exception(outputJSON(null, "success"));
 }
 
 $func = isset($_POST['func'])?$_POST["func"]:"test";

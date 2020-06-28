@@ -14,12 +14,21 @@
             }
             div#login {
                 display: inline-block;
-                width : 50%; 
+                width : 20%; 
                 padding : 15px;
                 cursor: pointer;
                 color : whitesmoke;
                 background-color: #5E42A6;
-                max-width: 300px;
+                max-width : 120px;
+                margin-top : 15px;
+            }
+            div#back {
+                display: inline-block;
+                width : 20%; 
+                max-width : 120px;
+                padding : 15px;
+                cursor: pointer;
+                background-color: rgb(82, 82, 82); color : white;
                 margin-top : 15px;
             }
             div#etc {
@@ -50,6 +59,7 @@
             <input id="telNum" type="text" maxlength="13" placeholder="휴대폰 번호" onkeypress="checkTelNum(this, event)"><br>
             <input id="password" type="password" placeholder="비밀번호" ><br>
             <div onclick="loginCheck();" id="login">로그인</div>
+            <div id="back" onclick="window.location.href='index.html'" style="background-color: rgb(82, 82, 82); color : white;">뒤로가기</div>
             <div id="etc">
                 <span id="register" onclick="window.location.href='register.html'">회원가입</span>&nbsp;&nbsp;&nbsp;
                 <span id="find_id_pw" onclick="window.location.href='find_pw.html'">비밀번호 찾기</span>

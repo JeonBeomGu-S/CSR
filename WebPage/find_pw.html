@@ -17,11 +17,11 @@
     div#findpassword, div#back {
         display: inline-block;
         width : 20%; 
+        max-width : 120px;
         padding : 15px;
         cursor: pointer;
         color : whitesmoke;
         background-color: #5E42A6;
-        max-width: 300px;
         margin-top : 15px;
     }
     input {
@@ -101,6 +101,7 @@
             <input id="cert" type="number" placeholder="인증번호">
             <div id="timer" style="color : red"></div>
             <input id="password_one" type="password" maxlength="6" placeholder="새로운 비밀번호" >
+            <br>
             <input id="password_two" type="password" maxlength="6" placeholder="새로운 비밀번호 확인" >
         </div>
         <div id="findpassword" onclick="password_find();">완료</div>

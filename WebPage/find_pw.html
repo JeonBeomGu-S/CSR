@@ -3,34 +3,92 @@
 <head>
 <title> 비밀번호찾기</title>
 <meta charset="utf-8">
+<script src="signage.base.js"></script>
+<script src="sweetalert.min.js"></script>
 <style>
-            form {
-                display : block;
-                text-align: center;
-                width : 50%;
-                margin : 0 auto;
-                margin-top : 7%;
-                min-width: 450px;
-            }
-             div#findpassword {
-                display: inline-block;
-                width : 50%; 
-                padding : 15px;
-                cursor: pointer;
-                color : whitesmoke;
-                background-color: #5E42A6;
-                max-width: 300px;
-                margin-top : 15px;
-            }
-
-            input {
-                width : 55%;
-                max-width: 300px;
-                padding : 15px;
-                font-weight: bold;
-                margin-top : 5px;
-            }
-        </style>
+    form {
+        display : block;
+        text-align: center;
+        width : 50%;
+        margin : 0 auto;
+        margin-top : 7%;
+        min-width: 450px;
+    }
+    div#findpassword, div#back {
+        display: inline-block;
+        width : 20%; 
+        padding : 15px;
+        cursor: pointer;
+        color : whitesmoke;
+        background-color: #5E42A6;
+        max-width: 300px;
+        margin-top : 15px;
+    }
+    input {
+        width : 55%;
+        max-width: 300px;
+        padding : 15px;
+        font-weight: bold;
+        margin-top : 5px;
+    }
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    .modal-content {
+        background-color: #34495e;
+        margin: 5% auto; /* 15% from the top and centered */
+        border: 1px solid black;
+        width: 65%; /* Could be more or less, depending on screen size */
+    }
+    .lds-ring {
+    display: inline-block;
+    width: 80px;
+    height: 100px;
+    }
+    .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+    }
+    .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+    }
+    .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+    }
+    .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+    }
+    @keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    }
+    .lds-ring-wrap {
+    position: absolute; top : 40%; left: 50%; text-align: center; width : 200px; height : 170px; background-color: rgb(184, 184, 184); border-radius: 20px;
+    padding-top : 20px;
+    transform: translateX(-50%);
+    }
+</style>
 
 </head>
 
@@ -38,17 +96,122 @@
 	 <!-- FindPassword form -->
 	 <form>
 	 	<h1> CSR 비밀번호 찾기 </h1>
-	 	<input type = "text" maxlength="13" placeholder="휴대폰 번호" onkeypress="checkTelNum(this);"><br>
-	 	<input type = "text" placeholder="이메일"><br>
-	 	<input type = "number" placeholder="인증번호"><br>
-	 	<input type = "password" placeholder="새로운 비밀번호"><br>
-	 	<input type = "password" placeholder="새로운 비밀번호 확인"><br>
-	 	<div id="findpassword">완료</div>
-	 </form>
+         <input id="telnum" type = "text" maxlength="13" placeholder="휴대폰 번호" onkeypress="checkTelNum(this, event);"><br>
+        <div id="cert_div" style="display: none;">
+            <input id="cert" type="number" placeholder="인증번호">
+            <div id="timer" style="color : red"></div>
+            <input id="password_one" type="password" maxlength="6" placeholder="새로운 비밀번호" >
+            <input id="password_two" type="password" maxlength="6" placeholder="새로운 비밀번호 확인" >
+        </div>
+        <div id="findpassword" onclick="password_find();">완료</div>
+        <div id="back" onclick="window.location.href='login.html'" style="background-color: rgb(82, 82, 82); color : white;">뒤로가기</div>
+     </form>
+
+    <!-- loading modal -->
+    <div class="modal" style="display : none;" id="loading_modal">
+        <div class="lds-ring-wrap" >
+            <div class="lds-ring">
+                <div></div><div></div><div></div><div></div>
+            </div>
+            <div style="text-align: center; font-size : 24px; font-weight: bold; color : whitesmoke">처리중...</div>
+        </div>
+    </div>
     </body>
     <script>
-        function checkTelNum(e){
-            if ( e.value.length == 3 || e.value.length == 8 ) e.value += "-";
+        var post_tel = document.getElementById("telnum");
+        var post_cert = document.getElementById("cert");
+        var post_password_one = document.getElementById("password_one");
+        var post_password_two = document.getElementById("password_two");
+        function checkTelNum(e, keyEvent){
+            if ( e.value.length == 3 || e.value.length == 8 ) e.value += (keyEvent.key == "-") ? "" : "-";
+        }
+        function password_find(){
+            if ( post_tel.value.length == 0 ) {
+                alerted(function(){return;}, "번호", "번호를 입력해주세요..", "warning");
+                return;
+            }
+            document.getElementById("loading_modal").style.display = "block";
+            var data = new FormData();
+            data.append("func", "find_password");
+            data.append("post_tel", post_tel.value);
+            POST("design_pattern_web.php", data, function(resp){
+                if ( resp.data == "phone wrong" ){
+                    alerted(function(){return;}, "휴대폰 번호를 다시 입력해주세요.", "예시 ) 010-1234-5678", "warning");
+                    return;
+                }
+                if ( resp.data == "file wrong" ){
+                    alerted(function(){return;}, "휴대폰 번호를 다시 입력해주세요", "존재하지 않은 계정입니다.", "warning");
+                    return;
+                }
+                if ( resp.data == "ok" ){
+                    document.getElementById("cert_div").style.display = "block";
+                    document.getElementById("loading_modal").style.display = "none";
+                    alerted(function(){return;}, "인증번호", "인증번호가 이메일로 발급되었습니다.", "warning");
+
+                    // timer start
+                    timer_obj = startTimer();
+
+                    // change button function
+                    let findpassword = document.getElementById("findpassword");
+                    findpassword.removeAttribute("onclick");
+                    findpassword.setAttribute("onclick", "password_change()");
+                }
+            });
+        }
+        // password change
+        function password_change(){
+            //prev task
+            if ( post_tel.value.length == 0 ) {
+                alerted(function(){return;}, "번호", "번호를 입력해주세요..", "warning");
+                return;
+            }
+            if ( post_cert.value.length == 0 ){
+                alerted(function(){return;}, "인증번호", "인증번호를 입력해주세요..", "warning");
+                return;
+            }
+            if ( post_password_one.value.length == 0 
+                 || post_password_two.value.length == 0 
+                 || post_password_one.value != post_password_two.value ){
+                alerted(function(){return;}, "비밀번호", "새 비밀번호를 입력해주세요..", "warning");
+                return;
+            } 
+            // POST to service
+            var data = new FormData();
+            data.append("func", "password_change");
+            data.append("post_tel", post_tel.value);
+            data.append("post_cert", post_cert.value);
+            data.append("post_pw", post_password_one.value);
+            POST("design_pattern_web.php", data, function(resp){
+                console.log(resp);
+                if ( resp.data == "ok" ){
+                    alerted(function(){
+                        window.location.href="login.html";
+                    }, "비밀번호 변경 완료", "비밀번호가 정상적으로 변경되었습니다.", "success");
+                }
+            });
+        }
+        // timer
+        var timer_obj=null;
+        function startTimer(duration=180, display=document.getElementById("timer")) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer_clear(); 
+                }
+            }, 1000);
+        }
+
+        function timer_clear(){
+            if ( timer_obj != null ) clearInterval(timer_obj);
+            alerted(function(){window.location.reload();}, "인증번호 만료", "인증번호가 만료되었습니다.", "warning");
         }
     </script>
 </html>

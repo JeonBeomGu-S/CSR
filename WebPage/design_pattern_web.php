@@ -227,10 +227,92 @@ function _non_member_use(){
     file_put_contents("$room_file_dir/CSR_info.json", $json_save);
     outputJSON("ok", "success");
 }
+/////////////////////////////////////
+// 문의사항 : 이메일 서비스
+$services['question'] = "_question";
+function _question(){
+    s00_log("Start ".__FUNCTION__);
+    $email_dir = "./email_service";
+    $post_user = $_POST["post_user"];
+    $post_title = $_POST["post_title"];
+    $post_content = $_POST["post_content"];
+    $post_email = $_POST["post_email"];
+    $operator_json = json_decode(file_get_contents("$email_dir/operator_email.json"), true);
+    $operator_json["email_name"];
+    // file make 
+    $file_content = " 
+        제목 : $post_title
+        작성자 : $post_user
+        내용 : $post_content 
+        작성자 이메일 : $post_email
+        ";
+    file_put_contents("$email_dir/$post_user.txt", $file_content);
+    exec("$email_dir/question.sh $email_dir/$post_user.txt '$post_title' " . $operator_json['email_name']);
+    outputJSON("ok", "success");
+}
+/////////////////////////////////////
+// 비밀번호 찾기 ( 인증번호 생성 및 이메일 )
+$services['find_password'] = "_find_password";
+function _find_password(){
+    s00_log("Start ".__FUNCTION__);
+    $file_dir = "register_info";
+    $tel_number = $_POST["post_tel"];
+    if ( !preg_match("/\b[0-9]{3}-[0-9]{4}-[0-9]{4}\b/i", $tel_number) ) outputJSON("phone wrong", "success");
+    if ( !file_exists("$file_dir/$tel_number.json") ) outputJSON("file wrong", "success");
+    $json_user = json_decode(file_get_contents("$file_dir/$tel_number.json"), true);
 
+    // make session for cert
+    $rand_number = rand(100000, 999999);
+    $_SESSION["cert"] = $rand_number;
 
+    // make cert period time
+    $_SESSION['LAST_ACTIVITY'] = time();
+
+    // send email
+    $email_dir = "./email_service";
+    $email = $json_user["email"];
+    exec("$email_dir/password.sh $rand_number $email");
+
+    // response ( end )
+    outputJSON("ok", "success");
+}
+/////////////////////////////////////
+// 비밀번호 찾기 ( 인증번호 생성 및 이메일 )
+$services['password_change'] = "_password_change";
+function _password_change(){
+    $file_dir = "register_info";
+    // 만료 확인
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 180)) {
+        // last request was more than 30 minutes ago
+        session_unset();     // unset $_SESSION variable for the run-time 
+        session_destroy();   // destroy session data in storage
+        outputJSON("expiration", "success");
+    }
+    error_log("post_cert : " . $_POST['post_cert'] . " session_cert : " . $_SESSION["cert"]);
+    if ( $_POST["post_cert"] != $_SESSION['cert'] ) outputJSON("wrong cert", "success");
+    $post_tel = $_POST["post_tel"];
+    $post_cert = $_POST["post_cert"];
+    $post_pw = $_POST["post_pw"];
+    $user_json = json_decode(file_get_contents("$file_dir/$post_tel.json"), true);
+    $user_json["password"] = $post_pw;
+    file_put_contents("$file_dir/$post_tel.json", json_encode($user_json));
+    // end
+    session_unset();     // unset $_SESSION variable for the run-time 
+    session_destroy();   // destroy session data in storage
+    outputJSON("ok", "success");
+}
+
+/////////////////////////////////////
+// 존재하지 않은 함수 또는 로그인이 필요한 서비스 
+$services['function_not_exists'] = "_function_not_exists";
+function _function_not_exists(){
+    s00_log("Start ".__FUNCTION__);
+    error_log("function_not_exists : " . __LINE__ );
+    throw new Exception("사용할 수 없는 서비스");
+}
 
 $func = isset($_POST['func'])?$_POST["func"]:"test";
+$func = function_exists($services[$func]) ? $func : "function_not_exists";
 
 try {	
     call_user_func( $services[$func] );

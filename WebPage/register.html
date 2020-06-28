@@ -139,9 +139,8 @@
         });
         }
 
-        function checkTelNum(e, event){
-            if ( e.value.length == 3 || e.value.length == 8 ) e.value += "-";
+        function checkTelNum(e, keyEvent){
+            if ( e.value.length == 3 || e.value.length == 8 ) e.value += (keyEvent.key == "-") ? "" : "-";
         }
-
     </script>
 </html>

@@ -3,149 +3,202 @@
 <head>
 <title> 문의사항</title>
 <meta charset="utf-8">
-
+<script src="signage.base.js"></script>
+<script src="sweetalert.min.js"></script>
 <style>
-              form {
-                display : block;
-                text-align: center;
-                width : 50%;
-                margin : 0 auto;
-                margin-top : 5%;
-                min-width: 900px;
-            }
-               div#send {
-
-                display: inline-block;
-                width : 50%; 
-                padding : 15px;
-                cursor: pointer;
-                color : whitesmoke;
-                background-color: #5E42A6;
-                max-width: 100px;
-                margin-top : 15px;
-            }
-               input#text{
-                width : 250px;
-                max-width: 300px;
-                padding : 15px;
-                font-weight: bold;
-                margin-top : 5px;
-            }
-
-             input#texts{
-                width : 650px;
-                height : 200px;
-                max-width: 600px;
-                padding : 15px;
-                font-weight: bold;
-                margin-top : 5px;
-
-            }
-
-
-      
-        table.table2{
-                border-collapse: separate;
-                border-spacing: 1px;
-                text-align: left;
-                line-height: 1.5;
-                border-top: 1px solid #ccc;
-                margin : 20px 10px;
-        }
-        table.table2 tr {
-                 width: 50px;
-                 padding: 10px;
-                font-weight: bold;
-                vertical-align: top;
-                border-bottom: 1px solid #ccc;
-        }
-        table.table2 td {
-                 width: 100px;
-                 padding: 10px;
-                 vertical-align: top;
-                 border-bottom: 1px solid #ccc;
-        }
- 
+    table { margin : 0 auto; }
+    #send_btn {
+        display: inline-block;
+        text-align: center;
+        width: 10%;
+        padding: 15px;
+        font-size: 15px;
+        cursor: pointer;
+        color: whitesmoke;
+        background-color: #5E42A6;
+        max-width: 230px;
+        margin : 0 auto;
+        margin-top: 35px;
+    }
+    input {
+        width: 55%;
+        max-width: 300px;
+        padding: 15px;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+    select {
+        width: 65%;
+        max-width: 334px;
+        padding: 15px !important;
+        font-weight: bold;
+        margin-top: 5px;
+        text-indent: 5px;
+    }
+    select option {
+        font-size : 15px;
+    }
+    textarea {
+        padding: 15px;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+    table {
+        background-color: whitesmoke;
+        padding : 25px;
+        padding-left: 70px;
+        padding-right: 70px;
+        border-collapse: separate;
+        border-spacing: 5px 10px;
+    }
+    td {
+        font-weight: bold;
+    }
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    .modal-content {
+        background-color: #34495e;
+        margin: 5% auto; /* 15% from the top and centered */
+        border: 1px solid black;
+        width: 65%; /* Could be more or less, depending on screen size */
+    }
+    .lds-ring {
+    display: inline-block;
+    width: 80px;
+    height: 100px;
+    }
+    .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+    }
+    .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+    }
+    .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+    }
+    .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+    }
+    @keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    }
+    .lds-ring-wrap {
+    position: absolute; top : 40%; left: 50%; text-align: center; width : 200px; height : 170px; background-color: rgb(184, 184, 184); border-radius: 20px;
+    padding-top : 20px;
+    transform: translateX(-50%);
+    }
 </style>
+</head>
 <body>
-        <form method = "get" action = "write_action.php">
-         <table border="1" width="90%" align="center"style="text-align: center">
-                <tr>
-               <td height=20 style="margin-bottom: 2% ;"align= center bgcolor=#ccc><font></font> <strong>문의사항</strong></font></td>
-                </tr>
-                <tr>
-                <td bgcolor=white>
-                <table class = "table2">
-                        <tr>
-                        <td>작성자</td>
-                        <td><input type = text name = name size=20 maxlength=10> </td>
-                        </tr>
- 
-                        <tr>
-                        <td>제목</td>
-                        <td><input type = text name = title size=60></td>
-                        </tr>
- 
-                        <tr>
-                        <td>내용</td>
-                        <td><textarea name = content cols=85 rows=15></textarea></td>
-                        </tr>
- 
-                        <tr>
-                        <td>비밀번호</td>
-                        <td><input type = password name = pw size=10 maxlength=10></td>
-                        </tr>
-                        </table>
-                        <button type="button" onclick=location.href='index.html'; style="color: #fff;  margin-top:5px;background:#5E42A6; border-radius:0.5em; padding:15px 38px; font-size: 15px;">보내기</button>
+    <div style="margin : 0 auto; text-align: center;">
+        <h1 style="display :inline-block; border-bottom : 3px #5E42A6 solid;
+        padding-bottom : 10px;">문의사항</h1>
+    </div>
+    <table class = "table2">
+            <tr>
+                <td>작성자</td>
+                <td><input id="user" type = text name = name size=20 maxlength=10> </td>
+            </tr>
+            <tr>
+                <td>제목</td>
+                <td>
+                <select id="title">
+                    <option value="0">문의사항 제목을 선택해주세요.</option>
+                    <option value="결제사항" style="padding : 15px;">결제사항</option>
+                    <option value="예약사항">예약사항</option>
+                    <option value="기타">기타</option>
+                </select>
                 </td>
-                </tr>
-        </table>
-        </form>
+            </tr>
+            <tr>
+                <td>내용</td>
+                <td><textarea id="content" name=content cols=85 rows=15></textarea></td>
+            </tr>
+            <tr>
+                <td>이메일&nbsp;&nbsp;</td>
+                <td><input id="email" type="text" placeholder="example@example.com" size=10></td>
+            </tr>
+    </table>
+    <div style="margin : 0 auto; text-align: center;">
+        <div onclick="question()" id="send_btn">보내기</div>
+        <div onclick="window.location.href='index.html#two'" id="send_btn" style="background-color: rgb(82, 82, 82); color : white;">뒤로가기</div>
+    </div>
+    <!-- loading modal -->
+    <div class="modal" style="display : none;" id="loading_modal">
+        <div class="lds-ring-wrap" >
+            <div class="lds-ring">
+                <div></div><div></div><div></div><div></div>
+            </div>
+            <div style="text-align: center; font-size : 24px; font-weight: bold; color : whitesmoke">접수중...</div>
+        </div>
+    </div>
 </body>
 <script>
-//작성자: 김덕영
-//목적:  보내기 버튼함수
-//되돌아오는 값:
+        //작성자: 김덕영
+        //목적:  보내기 버튼함수
+        //되돌아오는 값:
+        var user = document.getElementById("user"); // 작성자
+        var title = document.getElementById("title"); // 제목
+        var content = document.getElementById("content"); // 내용
+        var email = document.getElementById("email"); // 이메일
 
-        var user = document.getElementById("user");
-        var text = document.getElementById("text");
-        var content = document.getElementById("content");
-        var password = document.getElementById("password");
+        var loading_modal = document.getElementById("loading_modal");
         function question(){
             if ( user.value.length == 0 ){
                 alerted(function(){return;}, "작성자", "작성자 이름을 입력해주세요.", "warning");
                 return;
             }
-            if ( text.value.length == 0 ){
-                alerted(function(){return;}, "제목", "제목을 입력해주세요.", "warning");
+            if ( title.value == "0" ){
+                alerted(function(){return;}, "제목", "제목을 선택해주세요.", "warning");
                 return;
             }
             if ( content.value.length == 0 ){
                 alerted(function(){return;}, "내용", "내용을 입력해주세요.", "warning");
                 return;
             }
-            if ( password.value.length == 0 ) {
-                alerted(function(){return;}, "비밀번호", "비밀번호를 입력해주세요.", "warning");
+            if ( email.value.length == 0 ){
+                alerted(function(){return;}, "이메일", "이메일을 입력해주세요.", "warning");
                 return;
             }
+            loading_modal.style.display = "block";
             var data = new FormData();
-            data.append("func", "question_check")
-            data.append("post_password", password.value);
+            data.append("func", "question")
+            data.append("post_user", user.value);
+            data.append("post_title", title.value);
+            data.append("post_content", content.value);
+            data.append("post_email", email.value);
             POST("design_pattern_web.php", data, function(resp){
+                loading_modal.style.display = "none";
                 console.log(resp.data);
-                // 보내기 실패
-                if (resp.data == "question_wrong"){
-                    alerted(function(){return;}, "비밀번호를 다시입력해주세요.", "warning");
-                    return;
-                }
-                // 보내기 완료
-                if (resp.data == "question_ok"){
-
+                if ( resp.data == "ok" ){
+                    alerted(function(){ window.location.href="index.html"; }, "완료", "문의사항 접수가 완료되었습니다. \n 1시간 내로 이메일로 회신드리겠습니다.", "success");
                 }
             });
         }
-    
- 
         </script>
 </html>
     	

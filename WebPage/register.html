@@ -47,6 +47,8 @@
             <h3>CSR 회원가입</h3>
             <input id="username" type="text" placeholder="이름"><br>
             <input id="tel_number" type="text" maxlength="13"  placeholder="휴대폰 번호" onkeypress="checkTelNum(this, event)"><br>
+            <input id="email" type="email" placeholder="이메일"><br>
+
             <input type="password" id="pass1" maxlength="6" placeholder="비밀번호"><br>
             <input type="password" id="pass2" maxlength="6" placeholder="비밀번호 확인">
 
@@ -65,7 +67,6 @@
         </form>
     </body>
     <script>
-        //작성자: 이수진
         //목적: 가입 버튼 함수
         //되돌아오는 값: ...어떤 json 값
         // init var
@@ -74,6 +75,7 @@
         var post_password1 = document.getElementById("pass1");
         var post_password2 = document.getElementById("pass2");
         var post_year = document.getElementById("year");
+        var post_email = document.getElementById("email");
         var post_gender = null;
 
         function register(){
@@ -84,6 +86,10 @@
             }
             if ( post_tel_number.value.length == 0 ){
                 alerted(function(){return;}, "", "전화번호를 입력해주세요.", "warning");
+                return;
+            }
+            if ( post_email.value.length == 0 ){
+                alerted(function(){return;}, "", "이메일을 입력해주세요.", "warning");
                 return;
             }
             if ( post_password1.value.length == 0 || post_password2.value.length == 0 ){
@@ -108,6 +114,7 @@
             data.append("post_name", post_name.value);
             data.append("post_tel_number", post_tel_number.value);
             data.append("post_password", post_password1.value);
+            data.append("post_email", post_email.value);
             // data.append("post_password2", post_password2.value);
             data.append("post_year", post_year.value);
             data.append("post_gender", post_gender);
@@ -131,9 +138,8 @@
         });
         }
 
-        function checkTelNum(e, event){
-            if ( e.value.length == 3 || e.value.length == 8 ) e.value += "-";
+        function checkTelNum(e, keyEvent){
+            if ( e.value.length == 3 || e.value.length == 8 ) e.value += (keyEvent.key == "-") ? "" : "-";
         }
-
     </script>
 </html>
